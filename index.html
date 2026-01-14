@@ -449,64 +449,21 @@
         100% { opacity: 0; transform: translateY(-40px); }
       }
 
-      /* Modern Main Button Animations */
+      /* Simplified Main Button */
       .main-button {
         position: relative;
-        background: radial-gradient(circle at 30% 30%, 
-          #fff8e1 0%, 
-          #ffd700 20%, 
-          #ffb300 40%, 
-          #ff8f00 60%, 
-          #ff6f00 80%, 
-          #e65100 100%);
-        background-size: 200% 200%;
-        animation: gradientShift 4s ease-in-out infinite;
-        box-shadow: 
-          0 0 60px rgba(255, 215, 0, 0.8),
-          0 0 100px rgba(255, 193, 7, 0.6),
-          0 0 150px rgba(255, 152, 0, 0.4),
-          inset 0 0 30px rgba(255, 255, 255, 0.3),
-          inset 0 0 60px rgba(255, 215, 0, 0.2);
-        border: 3px solid transparent;
-        background-origin: border-box;
-        background-clip: padding-box, border-box;
+        background: linear-gradient(135deg, #ffd700 0%, #ffb300 50%, #ff8f00 100%);
+        border: 3px solid #ff8f00;
         transform-style: preserve-3d;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s ease;
       }
 
       .main-button::before {
-        content: '';
-        position: absolute;
-        top: -3px;
-        left: -3px;
-        right: -3px;
-        bottom: -3px;
-        background: linear-gradient(45deg, 
-          #ffd700, #ffed4e, #fff59d, #ffeb3b, #ffc107, #ff9800, #ff5722, #ffd700);
-        background-size: 400% 400%;
-        border-radius: inherit;
-        z-index: -1;
-        animation: borderGlow 3s linear infinite;
-        opacity: 0.8;
-        filter: blur(2px);
+        display: none;
       }
 
       .main-button::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 120%;
-        height: 120%;
-        background: radial-gradient(circle, 
-          rgba(255, 215, 0, 0.3) 0%, 
-          rgba(255, 193, 7, 0.2) 30%, 
-          transparent 70%);
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        animation: pulseGlow 2s ease-in-out infinite;
-        pointer-events: none;
-        z-index: -1;
+        display: none;
       }
 
       @keyframes gradientShift {
@@ -532,17 +489,12 @@
       }
 
       .main-button:hover {
-        transform: scale(1.05) rotateZ(2deg);
-        box-shadow: 
-          0 0 80px rgba(255, 215, 0, 1),
-          0 0 120px rgba(255, 193, 7, 0.8),
-          0 0 180px rgba(255, 152, 0, 0.6),
-          inset 0 0 40px rgba(255, 255, 255, 0.4),
-          inset 0 0 80px rgba(255, 215, 0, 0.3);
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
       }
 
       .main-button:active {
-        transform: scale(0.95) rotateZ(-1deg);
+        transform: scale(0.98);
         transition: all 0.1s ease;
       }
 
@@ -699,14 +651,14 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-DHpkd9mg.js"></script>
+  <script type="module" crossorigin src="./assets/index-BgHVLzxe.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/vendor-B--z-fyW.js">
-  <link rel="modulepreload" crossorigin href="./assets/game-CaNPlAep.js">
-  <link rel="modulepreload" crossorigin href="./assets/constants-DKWFWUYT.js">
-  <link rel="modulepreload" crossorigin href="./assets/types-DnUA7HM8.js">
-  <link rel="modulepreload" crossorigin href="./assets/ui-DimaYOmE.js">
-  <link rel="modulepreload" crossorigin href="./assets/components-pxVIiw8N.js">
-  <link rel="modulepreload" crossorigin href="./assets/app-CgQyOcl2.js">
+  <link rel="modulepreload" crossorigin href="./assets/game-BSflrnjg.js">
+  <link rel="modulepreload" crossorigin href="./assets/constants-CBbNB8eo.js">
+  <link rel="modulepreload" crossorigin href="./assets/types-BcRHhxXE.js">
+  <link rel="modulepreload" crossorigin href="./assets/ui-B7hxfxpW.js">
+  <link rel="modulepreload" crossorigin href="./assets/components-C7FJjLNS.js">
+  <link rel="modulepreload" crossorigin href="./assets/app-CcWZZagg.js">
 </head>
   <body>
     <div id="root"></div>
