@@ -74,11 +74,155 @@
         height: 100dvh; /* Dynamic viewport height */
       }
 
+      /* Responsive Design for All Screen Sizes */
       #root {
         width: 100vw;
         height: 100dvh; /* Dynamic viewport height */
         display: flex;
         flex-direction: column;
+        /* Prevent layout shifts */
+        min-width: 0;
+        min-height: 0;
+      }
+
+      /* Extra small screens (5 inches and smaller) */
+      @media (max-width: 360px) and (max-height: 640px) {
+        :root {
+          --base-font-size: 12px;
+          --panel-padding: 6px;
+          --gap-size: 4px;
+          --custom-border-width: 2px;
+        }
+        
+        body {
+          font-size: 12px;
+        }
+        
+        .btn {
+          min-height: 36px;
+          min-width: 36px;
+          padding: 8px 12px;
+          font-size: 11px;
+        }
+        
+        .tab-btn {
+          min-height: 36px;
+          padding: 6px 8px;
+          font-size: 10px;
+        }
+        
+        .modal-content {
+          padding: 1rem;
+          max-width: 95%;
+          width: 95%;
+          max-height: 95dvh;
+        }
+        
+        .panel {
+          padding: 6px;
+        }
+        
+        h1, h2, h3 {
+          font-size: 0.9rem;
+          letter-spacing: 1px;
+        }
+      }
+
+      /* Small screens (6-7 inches) */
+      @media (min-width: 361px) and (max-width: 480px) {
+        :root {
+          --base-font-size: 13px;
+          --panel-padding: 8px;
+          --gap-size: 6px;
+          --custom-border-width: 3px;
+        }
+        
+        body {
+          font-size: 13px;
+        }
+        
+        .btn {
+          min-height: 40px;
+          min-width: 40px;
+          padding: 10px 14px;
+          font-size: 12px;
+        }
+        
+        .tab-btn {
+          min-height: 40px;
+          padding: 7px 10px;
+          font-size: 11px;
+        }
+      }
+
+      /* Medium screens (8-10 inches - tablets) */
+      @media (min-width: 481px) and (max-width: 768px) {
+        :root {
+          --base-font-size: 14px;
+          --panel-padding: 10px;
+          --gap-size: 8px;
+          --custom-border-width: 3px;
+        }
+        
+        body {
+          font-size: 14px;
+        }
+        
+        .btn {
+          min-height: 44px;
+          min-width: 44px;
+          padding: 12px 16px;
+          font-size: 13px;
+        }
+        
+        .tab-btn {
+          min-height: 44px;
+          padding: 8px 12px;
+          font-size: 12px;
+        }
+      }
+
+      /* Large screens (11-13 inches - small laptops) */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        :root {
+          --base-font-size: 15px;
+          --panel-padding: 12px;
+          --gap-size: 10px;
+          --custom-border-width: 4px;
+        }
+        
+        body {
+          font-size: 15px;
+        }
+      }
+
+      /* Extra large screens (14+ inches - desktops) */
+      @media (min-width: 1025px) {
+        :root {
+          --base-font-size: 16px;
+          --panel-padding: 12px;
+          --gap-size: 12px;
+          --custom-border-width: 4px;
+        }
+        
+        body {
+          font-size: 16px;
+        }
+      }
+
+      /* Ultra-wide screens */
+      @media (min-width: 1440px) {
+        :root {
+          --base-font-size: 17px;
+          --panel-padding: 14px;
+          --gap-size: 14px;
+        }
+      }
+
+      /* Ensure proper scrolling */
+      body {
+        overflow-x: hidden;
+        overflow-y: auto;
       }
 
       h1, h2, h3 {
@@ -129,73 +273,16 @@
         background-color: rgba(141, 110, 99, 0.3);
       }
       
-      /* Mobile-specific button sizing */
-      @media (max-width: 767px) {
-        .btn {
-          min-height: 44px;
-          min-width: 44px;
-          padding: 12px 16px;
-          font-size: 14px;
-        }
-        
-        .tab-btn {
-          min-height: 44px;
-          padding: 8px 12px;
-          font-size: 12px;
-        }
-        
-        /* Scrollable areas fix */
-        .scrollable-content {
-          overflow-y: auto;
-          -webkit-overflow-scrolling: touch;
-          touch-action: pan-y;
-          padding-bottom: 30px; /* Space for last element */
-        }
+      /* Scrollable areas fix */
+      .scrollable-content {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+        padding-bottom: 30px; /* Space for last element */
       }
       
-      /* Responsive adjustments */
-      @media (max-width: 767px) {
-        body {
-          font-size: 14px; /* Smaller font on mobile */
-        }
-        
-        /* Hide desktop scrollbars on mobile */
-        ::-webkit-scrollbar {
-          width: 4px;
-        }
-      }
+            
       
-      /* Tablet adjustments */
-      @media (min-width: 768px) and (max-width: 1023px) {
-        .mobile-nav-btn {
-          font-size: 11px;
-        }
-      }
-
-      /* Modal fixes for mobile */
-      @media (max-width: 767px) {
-        .modal-content {
-          max-height: 90dvh;
-          display: flex;
-          flex-direction: column;
-          padding: 1rem;
-          max-width: 95%;
-          width: 95%;
-        }
-        
-        .modal-body {
-          overflow-y: auto;
-          -webkit-overflow-scrolling: touch;
-          touch-action: pan-y;
-          flex: 1;
-          padding-bottom: 20px;
-        }
-        
-        .modal-overlay {
-          padding: 10px;
-        }
-      }
-
       .floating-text {
         position: absolute;
         color: var(--text-color);
@@ -653,23 +740,7 @@
         }
       }
       
-      /* Mobile Responsive */
-      @media (max-width: 767px) {
-        .modal-content {
-          margin: 10px;
-        }
-        
-        .toast {
-          min-width: 200px;
-          padding: 10px 12px;
-        }
-        
-        .game-tooltip {
-          max-width: 200px;
-          font-size: 0.8rem;
-        }
-      }
-    </style>
+          </style>
 
   <script type="importmap">
 {
@@ -685,11 +756,11 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-DbTluz2P.js"></script>
+  <script type="module" crossorigin src="./assets/index-CfM_W0rb.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/vendor-B--z-fyW.js">
   <link rel="modulepreload" crossorigin href="./assets/game-DOhdzVw7.js">
   <link rel="modulepreload" crossorigin href="./assets/core-DEU_YNIC.js">
-  <link rel="modulepreload" crossorigin href="./assets/app-BqWpapL5.js">
+  <link rel="modulepreload" crossorigin href="./assets/app-DOXUJMzQ.js">
   <link rel="stylesheet" crossorigin href="./assets/index-tn0RQdqM.css">
 </head>
   <body>
