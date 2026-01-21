@@ -581,21 +581,30 @@
         to { transform: translateX(0); opacity: 1; }
       }
 
-      /* Clean Tooltip Styles */
+      /* Enhanced Tooltip Styles */
       .game-tooltip {
         position: fixed;
         background: var(--panel-bg);
         border: var(--custom-border-width) solid var(--border-color);
         color: var(--text-color);
-        padding: 8px 12px;
-        border-radius: 4px;
-        font-size: 0.9rem;
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-size: 0.85rem;
         box-shadow: var(--shadow);
         pointer-events: none;
         z-index: 5000;
-        max-width: 250px;
+        max-width: 280px;
         font-family: var(--font-main);
-        transition: opacity 0.1s ease;
+        transition: opacity 0.15s ease;
+        line-height: 1.4;
+      }
+      
+      .game-tooltip div {
+        margin-bottom: 4px;
+      }
+      
+      .game-tooltip div:last-child {
+        margin-bottom: 0;
       }
       
       /* Clean Scrollbar */
@@ -639,8 +648,9 @@
         font-family: var(--font-main);
         z-index: 999;
         filter: brightness(1.2);
+        white-space: nowrap;
       }
-
+      
       @keyframes floatUp {
         0% { opacity: 1; transform: translateY(0); }
         100% { opacity: 0; transform: translateY(-40px); }
@@ -831,16 +841,16 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/click-o-click/assets/index-U9ecZ8HN.js"></script>
+  <script type="module" crossorigin src="/click-o-click/assets/index-BBeS2x5v.js"></script>
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-DdgGw12P.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-react-CUeQczFW.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/core-BLe5j-6i.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-ui-BeL8qPGz.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-store-Bf5EGLgG.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-main-Jw6b0Csf.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-achievements-Cx03PYNb.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/core-B2DWBvsF.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-ui-shO_GMmo.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-store-e3GU96g1.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-main-DoGkSMZK.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-achievements-Be1VGs35.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-firebase-IMiYFFvY.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-modals-DEENK7VM.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-modals-DPFD1T_r.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-services-IDmCsBj4.js">
   <link rel="stylesheet" crossorigin href="/click-o-click/assets/index-tn0RQdqM.css">
 </head>
