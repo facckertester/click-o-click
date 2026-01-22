@@ -824,8 +824,61 @@
           transform: translate(var(--crown-x, 0), var(--crown-y, 0)) scale(1.05);
         }
       }
+
+      /* Responsive Badge Text */
+      .badge-compact-text {
+        display: inline-block !important;
+      }
       
-          </style>
+      .badge-full-text {
+        display: none !important;
+      }
+      
+      /* CSS hover fallback */
+      [data-tooltip*="Total Renown:"]:hover .badge-full-text,
+      [data-tooltip*="Infinite Tower Level:"]:hover .badge-full-text,
+      [data-tooltip*="National Projects Bonus:"]:hover .badge-full-text,
+      [data-tooltip*="Achievements Bonus:"]:hover .badge-full-text {
+        display: inline-block !important;
+      }
+      
+      [data-tooltip*="Total Renown:"]:hover .badge-compact-text,
+      [data-tooltip*="Infinite Tower Level:"]:hover .badge-compact-text,
+      [data-tooltip*="National Projects Bonus:"]:hover .badge-compact-text,
+      [data-tooltip*="Achievements Bonus:"]:hover .badge-compact-text {
+        display: none !important;
+      }
+      
+       </style>
+  <script>
+    // Badge hover functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Find all badge containers by looking for specific patterns
+      const badges = document.querySelectorAll('[data-tooltip*="Total Renown:"], [data-tooltip*="Infinite Tower Level:"], [data-tooltip*="National Projects Bonus:"], [data-tooltip*="Achievements Bonus:"]');
+      
+      console.log('Found badges:', badges.length);
+      
+      badges.forEach(badge => {
+        badge.addEventListener('mouseenter', function() {
+          const fullText = this.querySelector('.badge-full-text');
+          const compactText = this.querySelector('.badge-compact-text');
+          
+          console.log('Hovering badge:', fullText, compactText);
+          
+          if (fullText) fullText.style.display = 'inline-block';
+          if (compactText) compactText.style.display = 'none';
+        });
+        
+        badge.addEventListener('mouseleave', function() {
+          const fullText = this.querySelector('.badge-full-text');
+          const compactText = this.querySelector('.badge-compact-text');
+          
+          if (fullText) fullText.style.display = 'none';
+          if (compactText) compactText.style.display = 'inline-block';
+        });
+      });
+    });
+  </script>
 
   <script type="importmap">
 {
@@ -841,16 +894,16 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/click-o-click/assets/index-NIMyEdpk.js"></script>
+  <script type="module" crossorigin src="/click-o-click/assets/index-DlMJt9r9.js"></script>
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-DdgGw12P.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-react-CUeQczFW.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/core-zbIC2R3e.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-ui-6161zWVP.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-store-BGLpKUoP.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-main-NFkkpp5k.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-achievements-CBoLvSH_.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-ui-0tPvt55h.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-store-Dxeyi6_m.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-main-CmbDd9A1.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-achievements-DsDFmqGS.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-firebase-IMiYFFvY.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-modals-DfSQx4kt.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-modals-DIMRtme0.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-services-IDmCsBj4.js">
   <link rel="stylesheet" crossorigin href="/click-o-click/assets/index-tn0RQdqM.css">
 </head>
