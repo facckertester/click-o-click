@@ -19,13 +19,14 @@
     <!-- Medieval Fonts for Kingdom Theme - Highly Readable -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Lora:wght@400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Lora:wght@400;500;600;700&family=Merriweather:wght@300;400;700;900&family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23e8dcc5'/%3E%3Ctext x='50' y='55' font-family='Georgia' font-size='40' font-weight='bold' text-anchor='middle' fill='%233e2723'%3E👑%3C/text%3E%3C/svg%3E" />
     
     <style>
       :root {
+        /* Classic Theme Variables */
         --bg-color: #e8dcc5; /* Parchment */
         --panel-bg: #fdf6e3; /* Lighter parchment */
         --text-color: #3e2723; /* Dark brown */
@@ -42,6 +43,23 @@
         --font-weight: 600;
         --bg-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d7c9a8' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/svg%3E");
         
+        /* LUXURY ROYAL/ROLEX STYLE - Premium Theme Variables */
+        --modern-bg-color: #0d0d0d;
+        --modern-panel-bg: rgba(20, 20, 20, 0.9);
+        --modern-text-color: #e8e8e8;
+        --modern-text-secondary: #c0c0c0;
+        --modern-accent-color: #d4af37;
+        --modern-accent-hover: #b8941f;
+        --modern-gold-color: #ffd700;
+        --modern-border-color: rgba(212, 175, 55, 0.3);
+        --modern-success-color: #2e7d32;
+        --modern-danger-color: #c62828;
+        --modern-button-text: #1a1a1a;
+        --modern-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        --modern-font-main: "Playfair Display", "Cormorant Garamond", "Lora", Georgia, serif;
+        --modern-font-weight: 600;
+        --modern-bg-image: none;
+        
         /* Dynamic Variables */
         --base-font-size: 16px;
         --panel-padding: 12px;
@@ -52,6 +70,531 @@
         --col-left: 1;
         --col-center: 1;
         --col-right: 1;
+      }
+
+      /* Modern Theme Styles */
+      body.modern {
+        --bg-color: var(--modern-bg-color);
+        --panel-bg: var(--modern-panel-bg);
+        --text-color: var(--modern-text-color);
+        --text-secondary: var(--modern-text-secondary);
+        --accent-color: var(--modern-accent-color);
+        --accent-hover: var(--modern-accent-hover);
+        --gold-color: var(--modern-gold-color);
+        --border-color: var(--modern-border-color);
+        --success-color: var(--modern-success-color);
+        --danger-color: var(--modern-danger-color);
+        --button-text: var(--modern-button-text);
+        --shadow: var(--modern-shadow);
+        --font-main: var(--modern-font-main);
+        --font-weight: var(--modern-font-weight);
+        --bg-image: var(--modern-bg-image);
+      }
+
+      body.modern {
+        background: 
+          radial-gradient(ellipse at 30% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+          radial-gradient(ellipse at 70% 70%, rgba(192, 192, 192, 0.08) 0%, transparent 50%),
+          radial-gradient(ellipse at 50% 50%, rgba(139, 69, 19, 0.05) 0%, transparent 60%),
+          linear-gradient(135deg, #0d0d0d 0%, #141414 25%, #0d0d0d 50%, #141414 75%, #0d0d0d 100%);
+        background-size: 100% 100%, 100% 100%, 100% 100%, 400% 400%;
+        animation: luxuryGradient 40s ease infinite;
+        position: relative;
+        overflow: hidden;
+      }
+
+      body.modern::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+          radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.12) 0%, transparent 30%),
+          radial-gradient(circle at 75% 75%, rgba(192, 192, 192, 0.08) 0%, transparent 30%),
+          radial-gradient(circle at 50% 50%, rgba(139, 69, 19, 0.06) 0%, transparent 40%);
+        animation: luxuryAtmosphere 50s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      body.modern::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+          url("data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.006' fill-rule='evenodd'%3E%3Cpath d='M75 35 L80 45 L90 45 L85 52 L87 60 L75 55 L63 60 L65 52 L60 45 L70 45 Z'/%3E%3Cpath d='M35 75 L40 80 L40 90 L32 85 L25 87 L30 75 L25 65 L35 70 L45 60 Z'/%3E%3Cpath d='M115 75 L120 80 L120 90 L112 85 L105 87 L110 75 L105 65 L115 70 L125 60 Z'/%3E%3Cpath d='M75 115 L80 120 L90 120 L85 112 L87 105 L75 110 L63 105 L65 112 L60 120 L70 120 Z'/%3E%3C/g%3E%3C/svg%3E"),
+          url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c0c0c0' fill-opacity='0.004' fill-rule='evenodd'%3E%3Ccircle cx='50' cy='50' r='2'/%3E%3Ccircle cx='25' cy='25' r='1.5'/%3E%3Ccircle cx='75' cy='25' r='1.5'/%3E%3Ccircle cx='25' cy='75' r='1.5'/%3E%3Ccircle cx='75' cy='75' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: 150px 150px, 100px 100px;
+        animation: luxuryPattern 80s linear infinite;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      @keyframes luxuryGradient {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+
+      @keyframes luxuryAtmosphere {
+        0%, 100% { 
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        50% { 
+          opacity: 0.5;
+          transform: scale(1.02);
+        }
+      }
+
+      @keyframes luxuryPattern {
+        from { transform: translate(0, 0); }
+        to { transform: translate(-150px, -150px); }
+      }
+
+      /* LUXURY ROYAL/ROLEX BUTTONS - Premium Watch Style */
+      body.modern .btn {
+        background: 
+          linear-gradient(135deg, 
+            rgba(232, 232, 232, 0.1) 0%, 
+            rgba(232, 232, 232, 0.05) 100%),
+          linear-gradient(135deg, 
+            rgba(20, 20, 20, 0.95) 0%, 
+            rgba(30, 30, 30, 1) 50%, 
+            rgba(20, 20, 20, 0.95) 100%);
+        border: 2px solid rgba(212, 175, 55, 0.4);
+        border-radius: 6px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.8rem;
+        color: var(--modern-text-color);
+        font-family: var(--modern-font-main);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 
+          0 4px 16px rgba(0, 0, 0, 0.2),
+          0 0 0 1px rgba(212, 175, 55, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      body.modern .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+          transparent, 
+          rgba(212, 175, 55, 0.15), 
+          transparent);
+        transition: left 0.6s ease;
+      }
+
+      body.modern .btn:hover::before {
+        left: 100%;
+      }
+
+      body.modern .btn:hover {
+        transform: translateY(-2px);
+        background: 
+          linear-gradient(135deg, 
+            rgba(232, 232, 232, 0.15) 0%, 
+            rgba(232, 232, 232, 0.08) 100%),
+          linear-gradient(135deg, 
+            rgba(30, 30, 30, 1) 0%, 
+            rgba(40, 40, 40, 1) 50%, 
+            rgba(30, 30, 30, 1) 100%);
+        border-color: rgba(255, 215, 0, 0.6);
+        box-shadow: 
+          0 8px 24px rgba(0, 0, 0, 0.25),
+          0 0 0 2px rgba(255, 215, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.15),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        color: var(--modern-gold-color);
+      }
+
+      body.modern .btn:active {
+        transform: translateY(-1px);
+        background: 
+          linear-gradient(135deg, 
+            rgba(232, 232, 232, 0.2) 0%, 
+            rgba(232, 232, 232, 0.1) 100%),
+          linear-gradient(135deg, 
+            rgba(40, 40, 40, 1) 0%, 
+            rgba(50, 50, 50, 1) 50%, 
+            rgba(40, 40, 40, 1) 100%);
+        border-color: rgba(212, 175, 55, 0.8);
+        box-shadow: 
+          0 2px 8px rgba(0, 0, 0, 0.3),
+          0 0 0 1px rgba(212, 175, 55, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        transition: all 0.1s ease;
+      }
+
+      /* Ultra-Premium Royal Panels */
+      body.modern .panel {
+        background: 
+          linear-gradient(135deg, 
+            rgba(26, 26, 26, 0.95) 0%, 
+            rgba(45, 45, 45, 0.9) 50%, 
+            rgba(26, 26, 26, 0.95) 100%),
+          linear-gradient(135deg, 
+            rgba(255, 215, 0, 0.03) 0%, 
+            rgba(255, 215, 0, 0.01) 100%);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        border-radius: 16px;
+        backdrop-filter: blur(20px);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 
+          0 0 0 1px rgba(255, 215, 0, 0.1),
+          0 8px 32px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
+
+      body.modern .panel::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, 
+          #ffd700, #ffed4e, #fff59d, #ffeb3b, #ffc107, #ff9800);
+        border-radius: 16px;
+        z-index: -1;
+        opacity: 0.7;
+        animation: panelGlow 4s ease-in-out infinite;
+      }
+
+      body.modern .panel::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, 
+          transparent 0%, 
+          rgba(255, 215, 0, 0.6) 50%, 
+          transparent 100%);
+        animation: panelScanline 3s linear infinite;
+      }
+
+      @keyframes panelGlow {
+        0%, 100% { 
+          opacity: 0.5;
+          filter: hue-rotate(0deg) brightness(1);
+        }
+        50% { 
+          opacity: 0.8;
+          filter: hue-rotate(20deg) brightness(1.1);
+        }
+      }
+
+      @keyframes panelScanline {
+        0% { 
+          transform: translateY(0); 
+          opacity: 0;
+        }
+        50% { 
+          opacity: 1;
+        }
+        100% { 
+          transform: translateY(200px); 
+          opacity: 0;
+        }
+      }
+
+      /* Modern Modal Styles */
+      body.modern .modal-content {
+        background: rgba(26, 27, 58, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(30px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+
+      body.modern .modal-overlay {
+        background: rgba(15, 15, 35, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      /* Modern Tab Styles */
+      body.modern .tab-btn {
+        background: rgba(15, 15, 35, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        margin: 0 4px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      body.modern .tab-btn.active {
+        background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+      }
+
+      body.modern .tab-btn:hover {
+        background: rgba(99, 102, 241, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* LUXURY ROYAL/ROLEX MAIN BUTTON - Premium Crown Jewel */
+      body.modern .main-button {
+        background: 
+          radial-gradient(circle at 45% 45%, rgba(255, 215, 0, 0.8) 0%, transparent 50%),
+          radial-gradient(circle at 55% 55%, rgba(232, 232, 232, 0.6) 0%, transparent 50%),
+          linear-gradient(135deg, 
+            rgba(20, 20, 20, 0.95) 0%, 
+            rgba(30, 30, 30, 1) 50%, 
+            rgba(20, 20, 20, 0.95) 100%);
+        border: 4px solid rgba(212, 175, 55, 0.6);
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 
+          0 12px 32px rgba(0, 0, 0, 0.25),
+          0 0 0 2px rgba(212, 175, 55, 0.3),
+          inset 0 0 25px rgba(232, 232, 232, 0.1),
+          inset 0 -8px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      body.modern .main-button::before {
+        display: none;
+      }
+
+      body.modern .main-button::after {
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        right: 30%;
+        bottom: 30%;
+        background: 
+          radial-gradient(circle at 50% 50%, 
+            rgba(255, 255, 255, 0.4) 0%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            transparent 70%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: luxuryMainGlow 4s ease-in-out infinite alternate;
+      }
+
+      @keyframes luxuryMainGlow {
+        from { 
+          opacity: 0.2;
+          transform: translate(-50%, -50%) scale(0.8);
+        }
+        to { 
+          opacity: 0.6;
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+      }
+
+      body.modern .main-button:hover {
+        transform: scale(1.08);
+        background: 
+          radial-gradient(circle at 45% 45%, rgba(255, 215, 0, 0.9) 0%, transparent 50%),
+          radial-gradient(circle at 55% 55%, rgba(232, 232, 232, 0.7) 0%, transparent 50%),
+          linear-gradient(135deg, 
+            rgba(30, 30, 30, 1) 0%, 
+            rgba(40, 40, 40, 1) 50%, 
+            rgba(30, 30, 30, 1) 100%);
+        border-color: rgba(255, 215, 0, 0.8);
+        box-shadow: 
+          0 16px 40px rgba(0, 0, 0, 0.3),
+          0 0 0 3px rgba(255, 215, 0, 0.4),
+          inset 0 0 30px rgba(232, 232, 232, 0.15),
+          inset 0 -8px 25px rgba(0, 0, 0, 0.35);
+      }
+
+      body.modern .main-button:active {
+        transform: scale(1.05);
+        background: 
+          radial-gradient(circle at 45% 45%, rgba(255, 215, 0, 1) 0%, transparent 50%),
+          radial-gradient(circle at 55% 55%, rgba(232, 232, 232, 0.8) 0%, transparent 50%),
+          linear-gradient(135deg, 
+            rgba(40, 40, 40, 1) 0%, 
+            rgba(50, 50, 50, 1) 50%, 
+            rgba(40, 40, 40, 1) 100%);
+        border-color: rgba(212, 175, 55, 1);
+        box-shadow: 
+          0 8px 20px rgba(0, 0, 0, 0.35),
+          0 0 0 2px rgba(255, 215, 0, 0.5),
+          inset 0 0 20px rgba(232, 232, 232, 0.2),
+          inset 0 -6px 15px rgba(0, 0, 0, 0.4);
+        transition: all 0.1s ease;
+      }
+
+      /* Modern Royal Typography */
+      body.modern h1, body.modern h2, body.modern h3 {
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: var(--modern-font-main);
+        background: linear-gradient(45deg, 
+          var(--modern-gold-color) 0%, 
+          var(--modern-accent-color) 50%, 
+          var(--modern-gold-color) 100%);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: royalTextGradient 4s ease infinite;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        border-bottom: 2px solid var(--modern-accent-color);
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+        position: relative;
+      }
+
+      body.modern h1::after, body.modern h2::after, body.modern h3::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, 
+          transparent 0%, 
+          var(--modern-gold-color) 50%, 
+          transparent 100%);
+        animation: royalTitleGlow 3s ease-in-out infinite;
+      }
+
+      @keyframes royalTextGradient {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+
+      @keyframes royalTitleGlow {
+        0%, 100% { opacity: 0.6; transform: scaleX(0.8); }
+        50% { opacity: 1; transform: scaleX(1); }
+      }
+
+      /* Clean Royal Floating Text */
+      body.modern .floating-text {
+        color: var(--modern-gold-color);
+        text-shadow: 
+          0 0 15px rgba(255, 215, 0, 1),
+          0 0 30px rgba(255, 215, 0, 0.6),
+          0 0 45px rgba(212, 175, 55, 0.4);
+        font-weight: 700;
+        font-family: var(--modern-font-main);
+        animation: royalFloatUp 1.5s ease-out forwards;
+      }
+
+      @keyframes royalFloatUp {
+        0% { 
+          opacity: 1; 
+          transform: translateY(0) scale(1); 
+          filter: brightness(1);
+        }
+        100% { 
+          opacity: 0; 
+          transform: translateY(-40px) scale(1.2); 
+          filter: brightness(1.3);
+        }
+      }
+
+      /* Smooth transitions for theme switching */
+      body {
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .btn, .panel, .modal-content, .tab-btn, .main-button {
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Theme transition animation */
+      body.theme-transitioning {
+        animation: themeSwitch 0.8s ease-in-out;
+      }
+
+      @keyframes themeSwitch {
+        0% { filter: brightness(1) blur(0px); }
+        50% { filter: brightness(1.5) blur(2px); }
+        100% { filter: brightness(1) blur(0px); }
+      }
+
+      /* Modern Scrollbar */
+      body.modern ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      body.modern ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      
+      body.modern ::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 4px;
+        border: none;
+      }
+      
+      body.modern ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-hover);
+      }
+
+      /* Modern Tooltip */
+      body.modern .game-tooltip {
+        background: rgba(26, 27, 58, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Modern Toast */
+      body.modern .toast {
+        background: rgba(26, 27, 58, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      body.modern .toast.success { 
+        border-left: 4px solid var(--modern-success-color); 
+        background: linear-gradient(135deg, rgba(26, 27, 58, 0.95) 0%, rgba(16, 185, 129, 0.1) 100%);
+      }
+      
+      body.modern .toast.info { 
+        border-left: 4px solid #3b82f6; 
+        background: linear-gradient(135deg, rgba(26, 27, 58, 0.95) 0%, rgba(59, 130, 246, 0.1) 100%);
+      }
+      
+      body.modern .toast.error { 
+        border-left: 4px solid var(--modern-danger-color); 
+        background: linear-gradient(135deg, rgba(26, 27, 58, 0.95) 0%, rgba(239, 68, 68, 0.1) 100%);
+      }
+
+      /* Modern Floating Text */
+      body.modern .floating-text {
+        color: var(--modern-gold-color);
+        text-shadow: 0 0 20px rgba(251, 191, 36, 0.8), 0 0 40px rgba(251, 191, 36, 0.4);
+        font-weight: 700;
+      }
+
+      /* Smooth transitions for theme switching */
+      body {
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+
+      .btn, .panel, .modal-content, .tab-btn, .main-button {
+        transition: all 0.5s ease;
       }
 
       * {
@@ -894,16 +1437,16 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/click-o-click/assets/index-DlMJt9r9.js"></script>
+  <script type="module" crossorigin src="/click-o-click/assets/index-BCUCp8KI.js"></script>
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-DdgGw12P.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-react-CUeQczFW.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/core-zbIC2R3e.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-ui-0tPvt55h.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-store-Dxeyi6_m.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-main-CmbDd9A1.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-achievements-DsDFmqGS.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/core-OW4WOWX7.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-ui-CI8XsNbF.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-store-F1PVIbuA.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-main-xTGIcHAP.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-achievements-CPdoQZ6o.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-firebase-IMiYFFvY.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-modals-DIMRtme0.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-modals-BeLsb6mx.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-services-IDmCsBj4.js">
   <link rel="stylesheet" crossorigin href="/click-o-click/assets/index-tn0RQdqM.css">
 </head>
