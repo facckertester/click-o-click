@@ -993,6 +993,7 @@
         justify-content: center;
         align-items: center;
         z-index: 3000;
+        animation: overlayFade 0.2s ease-out forwards;
       }
       
       .modal-content {
@@ -1004,6 +1005,25 @@
         width: 90%;
         text-align: center;
         box-shadow: var(--shadow);
+        will-change: transform, opacity;
+        animation: windowsOpen 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+      }
+
+      /* Windows-style modal animations */
+      @keyframes windowsOpen {
+        0% {
+          opacity: 0;
+          transform: scale(0.92) translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      @keyframes overlayFade {
+        from { opacity: 0; }
+        to { opacity: 1; }
       }
 
       /* Dragon Event */
@@ -1392,7 +1412,89 @@
         display: none !important;
       }
       
-       </style>
+      /* Контейнер, внутри которого происходит магия слияния */
+.magnetic-container {
+  /* Применяем фильтр */
+  filter: url('#goo');
+  -webkit-filter: url('#goo');
+  
+  /* Важно! Разрешаем элементам выходить за границы, чтобы капли не обрезались */
+  overflow: visible;
+  
+  /* Центрирование */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px; /* Фиксированный размер для стабильности */
+  height: 300px;
+  z-index: 10;
+}
+
+/* Общие стили для ВСЕХ кнопок внутри (и главной, и маленьких) */
+.magnetic-container button {
+  /* Круглая форма обязательна для эффекта капли */
+  border-radius: 50% !important;
+  
+  /* Убираем рамки, они ломают эффект слияния */
+  border: none !important;
+  
+  /* Добавляем внутреннюю тень для объема (как на скриншоте) */
+  box-shadow: inset -5px -5px 15px rgba(255, 140, 0, 0.5), inset 5px 5px 15px rgba(255, 255, 0, 0.5) !important;
+  
+  /* Плавность движения */
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Цвет фона должен быть насыщенным для хорошего слияния */
+  background-color: #ffd700 !important; 
+  color: #5d4037 !important;
+}
+
+/* Специфика для главной кнопки */
+.main-button {
+  z-index: 20; /* Она всегда сверху */
+  width: 160px !important;
+  height: 160px !important;
+  /* Градиент для золотого эффекта */
+  background: radial-gradient(circle at 30% 30%, #ffd700, #ff8c00) !important;
+}
+
+/* Специфика для маленьких кнопок (спутников) */
+.magnetic-container .btn {
+  /* Убедимся, что они достаточно большие для фильтра */
+  width: 60px !important;
+  height: 60px !important;
+  z-index: 15;
+  background: #ffb300 !important;
+  transition: margin 0.3s ease;
+}
+
+/* Эффект отталкивания при наведении на главную кнопку */
+.main-button:hover ~ div .scepter-btn {
+  margin-left: 10px !important; /* ⚡ справа - отталкивается еще дальше вправо */
+}
+
+.main-button:hover ~ div .passive-income-btn {
+  margin-left: -10px !important; /* 💰 слева - отталкивается еще дальше влево */
+}
+
+.main-button:hover ~ div .tavern-btn {
+  margin-left: -7px !important; /* 🍺 внизу-слева - отталкивается дальше влево */
+  margin-top: 7px !important; /* и дальше вниз */
+}
+
+.main-button:hover ~ div .legacy-btn {
+  margin-left: 7px !important; /* 👑 внизу-справа - отталкивается дальше вправо */
+  margin-top: 7px !important; /* и дальше вниз */
+}
+
+/* Pulse animation for upgrade arrows */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); box-shadow: 0 0 10px #00e676; }
+  100% { transform: scale(1); }
+}
+        </style>
   <script>
     // Badge hover functionality
     document.addEventListener('DOMContentLoaded', function() {
@@ -1420,6 +1522,27 @@
           if (compactText) compactText.style.display = 'inline-block';
         });
       });
+
+      // Круглая область наведения для главной кнопки
+      const mainButton = document.querySelector('.main-button');
+      const crownSpan = mainButton ? mainButton.querySelector('span') : null;
+      const magneticContainer = document.querySelector('.magnetic-container');
+      
+      console.log('Main button found:', !!mainButton);
+      console.log('Crown span found:', !!crownSpan);
+      console.log('Magnetic container found:', !!magneticContainer);
+      
+      if (crownSpan && magneticContainer) {
+        crownSpan.addEventListener('mouseenter', function(e) {
+          console.log('Mouse entered crown span');
+          magneticContainer.classList.add('main-button-hovered');
+        });
+        
+        crownSpan.addEventListener('mouseleave', function(e) {
+          console.log('Mouse left crown span');
+          magneticContainer.classList.remove('main-button-hovered');
+        });
+      }
     });
   </script>
 
@@ -1437,21 +1560,34 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/click-o-click/assets/index-E1L9JusM.js"></script>
+  <script type="module" crossorigin src="/click-o-click/assets/index-DoGGkQnK.js"></script>
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-DdgGw12P.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-react-CUeQczFW.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/core-C6hXvPHv.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-ui-DNltbFR6.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-store-CJuVZDk8.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-achievements-DxxPQpbS.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/core-Bsm8WMPA.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-ui-DPdqUY33.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-main-DVe_petg.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-achievements-Dqws9Cf-.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/vendor-firebase-IMiYFFvY.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-modals-CTpAcMQr.js">
-  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-main-HPSbm32r.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-modals-DTocpHRQ.js">
+  <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-store-o5oWAX13.js">
   <link rel="modulepreload" crossorigin href="/click-o-click/assets/components-services-IDmCsBj4.js">
   <link rel="stylesheet" crossorigin href="/click-o-click/assets/components-main-B8twA-IN.css">
   <link rel="stylesheet" crossorigin href="/click-o-click/assets/index-tn0RQdqM.css">
 </head>
   <body>
     <div id="root"></div>
+  <!-- Жидкий фильтр -->
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="goo">
+      <!-- Размытие -->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+      <!-- Контраст (создает четкие края из размытия) -->
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+      <!-- Смешивание с оригиналом для сохранения деталей иконок -->
+      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+    </filter>
+  </defs>
+</svg>
 </body>
 </html>
